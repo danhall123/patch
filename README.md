@@ -1,1 +1,1 @@
-PATCH with Firebase connected and client display working.
+PATCH - full structure including UI for client/project edit/delete.
