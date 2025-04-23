@@ -1,1 +1,1 @@
-console.log('PATCH by Uncoded loaded');
+console.log('PATCH black & white prototype loaded');

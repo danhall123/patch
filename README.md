@@ -1,2 +1,2 @@
-# PATCH by Uncoded
-Functional prototype styled like Uncoded.com.
+# PATCH - Black & White Prototype
+Modern, clean, fully styled.
