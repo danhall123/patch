@@ -1,1 +1,1 @@
-PATCH with 3-dot menu and clickable client names.
+PATCH full layout structure – ready for real interaction and Firebase binding.
