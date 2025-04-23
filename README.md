@@ -1,2 +1,2 @@
-# PATCH - Real Prototype
-This version includes all structure and sample elements.
+# PATCH by Uncoded
+Functional prototype styled like Uncoded.com.
