@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PATCH - Firebase Connected</title>
+  <title>PATCH</title>
   <link rel="stylesheet" href="style.css" />
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
@@ -22,24 +22,37 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    window.addClient = async () => {
+    async function addClient() {
       const clientName = prompt("Enter client name:");
       if (clientName) {
         await addDoc(collection(db, "clients"), { name: clientName, created: new Date() });
         alert("Client added! Refresh to see update.");
+        window.location.reload();
       }
+    }
+
+    window.addClient = addClient;
+
+    window.onload = async () => {
+      const listEl = document.getElementById("clientList");
+      const querySnapshot = await getDocs(collection(db, "clients"));
+      querySnapshot.forEach((doc) => {
+        const item = document.createElement("li");
+        item.textContent = doc.data().name;
+        listEl.appendChild(item);
+      });
     };
   </script>
 </head>
 <body>
   <header>
     <h1>PATCH</h1>
-    <p>Live with Firebase integration</p>
   </header>
   <main>
     <section>
-      <h2>Clients & Projects</h2>
+      <h2>Clients</h2>
       <button onclick="addClient()">Add Client</button>
+      <ul id="clientList"></ul>
     </section>
   </main>
   <footer>

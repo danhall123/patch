@@ -1,2 +1,2 @@
-# PATCH - Firebase Connected
-First working connection to your Firebase project.
+# PATCH - Clean UI + Client Display
+Now displays saved clients and removes sub-heading.
