@@ -1,1 +1,1 @@
-console.log('PATCH app loaded');
+console.log('PATCH prototype loaded');
