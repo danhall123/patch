@@ -1,1 +1,1 @@
-PATCH - full structure including UI for client/project edit/delete.
+PATCH - final working version with full Firebase-powered client management.
