@@ -1,2 +1,2 @@
-# PATCH by Uncoded
-This is your site tracking app.
+# PATCH App
+This is the full version of your on-site reporting platform.
