@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PATCH - Final Working Version</title>
+  <title>PATCH</title>
   <link rel="stylesheet" href="style.css">
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
@@ -29,13 +29,18 @@
       list.innerHTML = '';
       const querySnapshot = await getDocs(collection(db, "clients"));
       querySnapshot.forEach(docSnap => {
-        const li = document.createElement('li');
         const clientName = docSnap.data().name;
+        const li = document.createElement('li');
 
         li.innerHTML = `
-          <strong>${clientName}</strong>
-          <button onclick="editClient('${docSnap.id}', '${clientName}')">Edit</button>
-          <button onclick="deleteClient('${docSnap.id}')">Delete</button>
+          <span onclick="alert('Open Projects for ${clientName}')">${clientName}</span>
+          <div class="dropdown">
+            <button class="dropbtn">⋮</button>
+            <div class="dropdown-content">
+              <a href="#" onclick="editClient('${docSnap.id}', '${clientName}')">Edit</a>
+              <a href="#" onclick="deleteClient('${docSnap.id}')">Delete</a>
+            </div>
+          </div>
         `;
         list.appendChild(li);
       });

@@ -1,1 +1,1 @@
-PATCH - final working version with full Firebase-powered client management.
+PATCH with 3-dot menu and clickable client names.
