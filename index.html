@@ -4,44 +4,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PATCH - Project Tracker</title>
+  <title>PATCH - Firebase Connected</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "patch-61af1.firebaseapp.com",
+      projectId: "patch-61af1",
+      storageBucket: "patch-61af1.appspot.com",
+      messagingSenderId: "563489520807",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.addClient = async () => {
+      const clientName = prompt("Enter client name:");
+      if (clientName) {
+        await addDoc(collection(db, "clients"), { name: clientName, created: new Date() });
+        alert("Client added! Refresh to see update.");
+      }
+    };
+  </script>
 </head>
 <body>
   <header>
     <h1>PATCH</h1>
-    <p>On-Site Reporting Tool</p>
+    <p>Live with Firebase integration</p>
   </header>
   <main>
     <section>
       <h2>Clients & Projects</h2>
-      <button>Add Client</button>
-    </section>
-    <section>
-      <h2>Project Stages</h2>
-      <ul>
-        <li>Site Survey</li>
-        <li>First Fix</li>
-        <li>Second Fix</li>
-        <li>Final Completion</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Room Details</h2>
-      <button>Add Room</button>
-      <button>Upload Photo</button>
-      <button>Add Comment</button>
-      <button>Upload Manual</button>
-    </section>
-    <section>
-      <h2>Export Reports</h2>
-      <button>Download PDF</button>
-      <button>Download Excel</button>
+      <button onclick="addClient()">Add Client</button>
     </section>
   </main>
   <footer>
     <p>© 2025 PATCH</p>
   </footer>
-  <script src="app.js"></script>
 </body>
 </html>

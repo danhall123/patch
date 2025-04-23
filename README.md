@@ -1,2 +1,2 @@
-# PATCH - Black & White Prototype
-Modern, clean, fully styled.
+# PATCH - Firebase Connected
+First working connection to your Firebase project.
